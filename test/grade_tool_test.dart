@@ -40,4 +40,40 @@ void main(){
     expect(actualLetterGrade, equals(expectedLetterGrade));
   });//End Test for Greater then Value for A being 91
 
+  test('Grade 101 should be an A', () {
+    const numericGrade = 101;
+    const expectedLetterGrade = 'A';
+
+    final actualLetterGrade = gradeLibrary.entries.firstWhere(
+            (entry) => numericGrade >= entry.key,
+        orElse: () => const MapEntry(0, 'F')).value;
+
+    expect(actualLetterGrade, equals(expectedLetterGrade));
+
+  });//End Test for 101
+
+  test('Grade 71 should be an C', () {
+    const numericGrade = 71;
+    const expectedLetterGrade = 'C';
+
+    final actualLetterGrade = gradeLibrary.entries.firstWhere(
+            (entry) => numericGrade >= entry.key,
+        orElse: () => const MapEntry(0, 'F')).value;
+
+    expect(actualLetterGrade, equals(expectedLetterGrade));
+
+  });//End test for C
+
+  test('Grade 0 should be an F', () {
+    const numericGrade = 0;
+    const expectedLetterGrade = 'F';
+
+    final actualLetterGrade = gradeLibrary.entries.firstWhere(
+            (entry) => numericGrade >= entry.key,
+        orElse: () => const MapEntry(0, 'F')).value;
+
+    expect(actualLetterGrade, equals(expectedLetterGrade));
+
+  });//End test for F
+
 } //End Main
