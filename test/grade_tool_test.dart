@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:flutter_test/flutter_test.dart';
 
 void main(){
@@ -29,5 +28,16 @@ void main(){
 
     expect(actualLetterGrade, expectedLetterGrade);
   });//End test for B
+
+  test('Grade 91 should be an A', () {
+    const numericGrade = 91;
+    const expectedLetterGrade = 'A';
+
+    final actualLetterGrade = gradeLibrary.entries.firstWhere(
+            (entry) => numericGrade >= entry.key,
+        orElse: () => const MapEntry(0, 'F')).value;
+
+    expect(actualLetterGrade, equals(expectedLetterGrade));
+  });//End Test for Greater then Value for A being 91
 
 } //End Main
