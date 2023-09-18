@@ -8,9 +8,11 @@ class GradeConverter {
   };
 
   String convertGrade(int numericGrade) {
-    return gradeLibrary.entries.firstWhere(
+    return gradeLibrary.entries
+        .firstWhere(
           (entry) => numericGrade >= entry.key,
-      orElse: () => const MapEntry(0, 'F'),
-    ).value;
+          orElse: () => const MapEntry(0, 'F'),
+        )
+        .value;
   }
 }
